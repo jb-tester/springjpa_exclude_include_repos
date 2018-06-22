@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:dt="http://www.springframework.org/schema/data/repository"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd ">
+<import resource="db.xml"/>
+<jpa:repositories base-package="com.mytests.spring.jpa.exclude_include_repos.repositories">
+    <!--<dt:include-filter type="annotation" expression="org.springframework.data.repository.RepositoryDefinition"/>-->
+    <dt:exclude-filter type="annotation" expression="com.mytests.spring.jpa.exclude_include_repos.utils.annotations.MyFilterAnnotation"/>
+    <dt:exclude-filter type="annotation" expression="com.mytests.spring.jpa.exclude_include_repos.utils.annotations.MyFilterAnnotation2"/>
+    <dt:exclude-filter type="assignable" expression="com.mytests.spring.jpa.exclude_include_repos.utils.types.MyFilterType"/>
+    <dt:exclude-filter type="regex" expression="com.mytests.spring.jpa.exclude_include_repos.repositories.*Pattern"/>
+    <dt:exclude-filter type="aspectj" expression="com.mytests.spring.jpa.exclude_include_repos.repositories.*Aspect"/>
+</jpa:repositories>
+</beans>
