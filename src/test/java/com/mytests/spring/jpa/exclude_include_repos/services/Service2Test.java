@@ -21,6 +21,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 @ContextConfiguration(classes = Config2.class, loader = AnnotationConfigContextLoader.class)
 public class Service2Test {
 
+    // include filters don't work: https://youtrack.jetbrains.com/issue/IDEA-173271
 
     @Autowired(required = false)
     private ContactRepo1 notIncludedRepo1; // error

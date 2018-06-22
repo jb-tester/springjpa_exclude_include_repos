@@ -25,6 +25,11 @@ public class Service1XmlTest {
     @Autowired
     private ContactRepo1 contactRepo1;
 
+    // Actually all the autowired beans below are shown as available
+    // for autowiring - but should not since they are excluded by different
+    // repositories#exclude-filter elements in the xml config
+    // @see https://youtrack.jetbrains.com/issue/IDEA-76696
+
     @Autowired(required = false)
     private ContactRepoByPattern pattern; // error - should be null!
 
@@ -32,13 +37,13 @@ public class Service1XmlTest {
     private ContactRepoByAspect aspect; // error - should be null!
 
     @Autowired(required = false)
-    private ContactRepoByType exclByType;
+    private ContactRepoByType exclByType; // error - should be null!
 
     @Autowired(required = false)
-    private ContactRepoByAnno2 exclByAnno2;
+    private ContactRepoByAnno2 exclByAnno2; // error - should be null!
 
     @Autowired(required = false)
-    private ContactRepoByAnno exclByAnno;
+    private ContactRepoByAnno exclByAnno; // error - should be null!
 
     @Test
     public void testRepo1() throws Exception {

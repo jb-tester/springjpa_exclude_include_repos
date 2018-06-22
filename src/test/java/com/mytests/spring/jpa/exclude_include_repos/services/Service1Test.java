@@ -26,10 +26,10 @@ public class Service1Test {
     private ContactRepo1 contactRepo1;
 
     @Autowired(required = false)
-    private ContactRepoByPattern pattern; // error - should be null!
+    private ContactRepoByPattern pattern; // error - should be null! see https://youtrack.jetbrains.com/issue/IDEA-173269
 
     @Autowired(required = false)
-    private ContactRepoByAspect aspect; // error - should be null!
+    private ContactRepoByAspect aspect; // error - should be null! see https://youtrack.jetbrains.com/issue/IDEA-173270
 
     @Autowired(required = false)
     private ContactRepoByType exclByType;
